@@ -1,5 +1,3 @@
-- atualizar ProtectedController com as rotas de 'adoptions'
-- refatorar o código separando users, pets, adoptions em controllers
 - definir role nas rotas put e get users
 - validar as regras de negócio
 - criar arquivo teste

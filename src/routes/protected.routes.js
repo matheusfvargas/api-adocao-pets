@@ -2,31 +2,32 @@
 const express = require('express');
 //Importa o middleware que valida tokens JWT em rotas protegidas
 const { authenticateToken, authorizeRole } = require('../middlewares/auth.middleware');
-// Importa o controller responsável por lidar com rotas protegidas por autenticação JWT
-const ProtectedController = require('../controllers/protected.controller');
+const ProtectedAdoptionsController = require('../controllers/protected.adoptionsController')
+const ProtectedPetsController = require('../controllers/protected.petsController');
+const ProtectedUsersController = require('../controllers/protected.usersController')
 // Cria uma nova instância do roteador do Express para definir as rotas protegidas
 const router = express.Router();
 // Define a rota GET /pets (admin)
-router.get('/pets', authenticateToken, authorizeRole('admin'),ProtectedController.getAllPets)
+router.get('/pets', authenticateToken, authorizeRole('admin'),ProtectedPetsController.getAllPets)
 //Define a rota GET /pets/:id (admin)
-router.get('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedController.getPetByID)
+router.get('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedPetsController.getPetByID)
 //Define a rota POST /pets (admin)
-router.post('/pets', authenticateToken, authorizeRole('admin'),ProtectedController.createPet)
+router.post('/pets', authenticateToken, authorizeRole('admin'),ProtectedPetsController.createPet)
 //Define a rota PUT /pets/:id (admin)
-router.put('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedController.updatePet)
+router.put('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedPetsController.updatePet)
 //Define a rota DELETE /pets/:id (admin)
-router.delete('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedController.removePet)
+router.delete('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedPetsController.removePet)
 //Define a rota GET /users (admin)
-router.get('/users', authenticateToken, authorizeRole('admin'), ProtectedController.getAllUsers)
+router.get('/users', authenticateToken, authorizeRole('admin'), ProtectedUsersController.getAllUsers)
 //Define a rota GET /users/:id (admin ou o próprio usuário logado)
-router.get('/users/:id', authenticateToken, ProtectedController.getUserByID)
+router.get('/users/:id', authenticateToken, ProtectedUsersController.getUserByID)
 //Define a rota PUT /users (admin ou o próprio usuário logado)
-router.put('/users/', authenticateToken, ProtectedController.updateUser)
+router.put('/users/', authenticateToken, ProtectedUsersController.updateUser)
 //Define a rota DELETE /users (admin)
-router.delete('/users/:id', authenticateToken, authorizeRole('admin'), ProtectedController.removeUser)
+router.delete('/users/:id', authenticateToken, authorizeRole('admin'), ProtectedUsersController.removeUser)
 //Define a rota GET /adoptions (admin)
-router.get('/adoptions', authenticateToken, authorizeRole('admin'), ProtectedController.getAllAdoptions)
+router.get('/adoptions', authenticateToken, authorizeRole('admin'), ProtectedAdoptionsController.getAllAdoptions)
 //Define a rota POST /adoptions (adopter)
-router.post('/adoptions', authenticateToken, authorizeRole('adopter'), ProtectedController.addAdoption)
+router.post('/adoptions', authenticateToken, authorizeRole('adopter'), ProtectedAdoptionsController.createAdoption)
 // Exporta o roteador configurado para ser utilizado na aplicação
 module.exports = router;

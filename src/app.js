@@ -1,7 +1,7 @@
 // Importa o módulo Express, para a criação de servidores web com Node.js
 const express = require('express');
-// Importa as rotas responsáveis pela autenticação (login, cadastro, etc.)
-const authRoutes = require('./routes/auth.routes');
+// Importa o middleware para tratamento centralizado de erros
+const errorMiddleware = require('./middlewares/error.middleware');
 // Importa as rotas públicas, que não requerem autenticação
 const publicRoutes = require('./routes/public.routes');
 // Importa as rotas protegidas, que só podem ser acessadas com um token JWT
@@ -16,5 +16,7 @@ app.use('/auth', authRoutes);
 app.use('/public', publicRoutes);
 // Define o prefixo '/protected' para rotas que exigem autenticação com JWT
 app.use('/protected', protectedRoutes);
+// Middleware de tratamento de erros (deve ser adicionado depois das rotas)
+app.use(errorMiddleware);
 // Exporta o app para que ele possa ser utilizado por outros arquivos
 module.exports = app;

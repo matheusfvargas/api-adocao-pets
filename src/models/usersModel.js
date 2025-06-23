@@ -16,8 +16,29 @@ class UserModel {
     );
     return result.insertId; // Retorna o ID do usuário criado
     }
+    
+    //Lista todos os usuários
+    static async getAllUsers(){
+    const [rows] = await db.query('SELECT * FROM users');
+    return rows;
     }
-
+    //Lista usuario por ID
+    static async getUserByID(_id){
+    const [row] = await db.query('SELECT * FROM users WHERE id =?', [_id]);
+    return row[0];
+    }
+    //Atualiza cadastro de user
+    static async updateUser(id, { name, email, password, phone, role}) {
+        await db.query(
+        'UPDATE users SET name = ?, email = ?, password =?, phone=?, role=?  WHERE id = ?',
+        [name, email,password, phone, role ,id]
+        );
+    }
+    //Deleta cadastro de user
+    static async deleteUser(id) {
+        await db.query('DELETE FROM users WHERE id = ?', [id]);
+        }
+}
 // Exporta a classe UserModel para ser usada nos services
 
 module.exports = UserModel;

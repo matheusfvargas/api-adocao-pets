@@ -4,7 +4,7 @@ const UserModel = require("../models/usersModel"); // Model responsável pelo ac
 
 // Classe que contém os serviços relacionados ao usuário, como registro e login
 class UserService {
-    // Método para registrar um novo usuário
+// Serviço para registrar um novo usuário
     static async registerUser(user) {
     const { email, password} = user;
     // Verifica se o e-mail já está cadastrado
@@ -21,7 +21,8 @@ class UserService {
     // Retorna os dados de sucesso (sem lançar erro)
     return { message: 'Usuário registrado com sucesso', id };
     }
-    // Método para autenticar o usuário e gerar token JWT
+
+//Serviço para autenticar o usuário e gerar token JWT
     static async loginUser({ email, password }) {
     // Busca o usuário pelo e-mail
     const user = await UserModel.findByEmail(email);
@@ -42,5 +43,22 @@ class UserService {
  // Retorna o token para o controller
  return { token };
  }
+
+ //Serviço para listar todos os usuários
+ static async listUsers() {
+    return await UserModel.getAllUsers();
+    }
+// Serviço para retornar usuario por ID
+static async getUserByID(id){
+    return await UserModel.getUserByID(id);
+}
+//Serviço para atualizar cadastro de usuário
+static async editUser(id, user){
+    return await UserModel.updateUser(id, user)
+}
+//Serviço para deletar cadastro de usuário
+static async deleteUser(id){
+    return await UserModel.deleteUser(id)
+}
 }
 module.exports = UserService;

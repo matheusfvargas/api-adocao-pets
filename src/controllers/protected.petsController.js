@@ -46,7 +46,7 @@ class ProtectedPetsController{
              await PetsService.removePet(id);
              res.json({ message: 'Cadastro deletado com sucesso.' });
              } catch (error) {
-             res.status(400).json({ error: error.message }); // Retorna erro se usuário não encontrado
+             res.status(400).json({ error: error.message }); // Retorna erro se não encontrado
              }
              }
             

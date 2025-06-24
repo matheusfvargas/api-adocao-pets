@@ -36,7 +36,7 @@ class UserService {
     }
     // Gera o token JWT
     const token = jwt.sign(
-    { email: user.email, role: user.role },
+    { userID: user.id, role: user.role },
     process.env.JWT_SECRET,
  { expiresIn: '1h' }
  );

@@ -1,6 +1,4 @@
-- definir role nas rotas put e get users
-- validar as regras de negócio
-- criar arquivo teste
-- validação no utils (opcional)
+- erro no acesso à rota pelo próprio usuário
+- erro na adoção
 - atualizar o README
 - criar vídeo explicativo

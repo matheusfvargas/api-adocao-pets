@@ -24,13 +24,17 @@ class PetsService{
     static async removePet(id) {
     const existing = await PetsModel.getAvailablePetByID(id);
     if (!existing){
-    throw new Error('Pet não está com status available')
+    throw new Error('Pet não está disponível para remoção do cadastro')
     }
     await PetsModel.deletePet(id);
     }
     //Serviço para listar pets com status 'available'
     static async availablePets(){
-        await PetsModel.getAvailablePets();
+        return await PetsModel.getAvailablePets();
+    }
+    //Serviço para listar pets por ID
+    static async getPetByID(_id){
+        return await PetsModel.getPetByID(_id)
     }
    }
    module.exports = PetsService;

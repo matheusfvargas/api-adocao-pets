@@ -1,0 +1,114 @@
+@baseURL = http://localhost:3000
+### Rota pública para listagem de pets 'available'
+GET {{baseURL}}/pets/available
+Content-Type: application/json
+
+### Cadastro de novo usuário (register) sem role para testar criação com DEFAULT
+POST {{baseURL}}/users
+Content-Type: application/json
+
+{
+ "name": "João da Silva",
+ "email": "novo@ifrs.edu.br",
+ "password": "senha123",
+ "phone": "54998185683"
+}
+
+### Login do novo usuário (pegar o token gerado abaixo)
+POST {{baseURL}}/login
+Content-Type: application/json
+
+{
+ "email": "novo@ifrs.edu.br",
+ "password": "senha123"
+}
+
+### Login do administrador (usuário já existente no banco)
+POST {{baseURL}}/login
+Content-Type: application/json
+
+{
+ "email": "admin@ifrs.edu.br",
+ "password": "123456"
+}
+
+### Acesso ao painel (rota protegida, requer token de admin)
+GET {{baseURL}}/pets
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDc5NTkxMywiZXhwIjoxNzUwNzk5NTEzfQ.DYjAzD-93Ne5D7cs1CEgd56xsQsFTFseWG86wKprt3w
+### Acesso à rota /pets/:id (rota protegida, requer token de admin)
+GET {{baseURL}}/pets/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDc5NTkxMywiZXhwIjoxNzUwNzk5NTEzfQ.DYjAzD-93Ne5D7cs1CEgd56xsQsFTFseWG86wKprt3w
+###Acesso ao cadastro de novo pet (rota protegida, requer token de admin) sem status para testar DEFAULT 
+
+POST {{baseURL}}/pets
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDc5NTkxMywiZXhwIjoxNzUwNzk5NTEzfQ.DYjAzD-93Ne5D7cs1CEgd56xsQsFTFseWG86wKprt3w
+Content-Type: application/json
+
+{
+    "name": "Max",
+    "age": 2,
+    "species": "Cão poodle",
+    "size": "small",
+    "description": "cão dócil"
+}
+
+###Acesso à atualização do cadastro do pet (rota protegida, requer token de admin)
+
+PUT {{baseURL}}/pets/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjQsInJvbGUiOm51bGwsImlhdCI6MTc1MDc4OTI5MCwiZXhwIjoxNzUwNzkyODkwfQ.A4Y4nUYhUstDgx-MslGRuXEbpxtUVoZRMUvYRuLebSg
+Content-Type: application/json
+
+{
+    "name": "Rex",
+    "age": 4,
+    "species": "Cão SRD",
+    "size": "large",
+    "status" : "available",
+    "description": "cão de guarda vacinado"
+}
+
+###Acesso à rota DELETE pets (rota protegida, requer token de admin)
+DELETE {{baseURL}}/pets/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDc4ODE4NywiZXhwIjoxNzUwNzkxNzg3fQ.BpC8eU-dSoPiGgTNO01TCxdX-um52zYTNJcQr3NivyM
+
+
+### Acesso à todos os users (rota protegida, requer token de admin)
+GET {{baseURL}}/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDc4ODE4NywiZXhwIjoxNzUwNzkxNzg3fQ.BpC8eU-dSoPiGgTNO01TCxdX-um52zYTNJcQr3NivyM
+
+
+### Acesso a um user específico (rota protegida, requer token de admin ou o próprio usuário)
+GET {{baseURL}}/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUwNzk1ODQ5LCJleHAiOjE3NTA3OTk0NDl9.8Ww25_x44i3BnrHxLwE2qF6BXDBFoZ4KzT2RNqvy4fU
+
+
+### Acesso à rota PUT users/:id (rota protegida, requer token de admin ou o próprio usuário)
+PUT {{baseURL}}/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDc5NTc5MCwiZXhwIjoxNzUwNzk5MzkwfQ.fCfN9dDYPHb7tLg9LINpLb_lLuu2vo6cuub_0Ap_K4E
+Content-Type: application/json
+
+{
+"name": "João da Silva",
+"email": "novo@ifrs.edu.br",
+"password": "senha123",
+"phone": "54998185683", 
+"role": "admin"
+}
+
+### Acesso à rota DELETE users (rota protegida, requer token de admin)
+DELETE {{baseURL}}/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjQsInJvbGUiOm51bGwsImlhdCI6MTc1MDc4OTI5MCwiZXhwIjoxNzUwNzkyODkwfQ.A4Y4nUYhUstDgx-MslGRuXEbpxtUVoZRMUvYRuLebSg
+
+
+### Acesso à rota GET /adoptions (rota protegida, requer token de admin)
+GET {{baseURL}}/adoptions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwMDM1MiwiZXhwIjoxNzUwODAzOTUyfQ.juh_VpjunL2JRjRYKBkY8ZQr5QxPF3CbeN92PVpyCSE
+
+###Acesso à rota POST /adoptions (rota protegida, requer token de adopter)
+POST {{baseURL}}/adoptions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUwNzk5Nzc1LCJleHAiOjE3NTA4MDMzNzV9.k_7U61nhYvGzBqyNiljhhzvjzc8BYZnDZYYsxYGxesc
+Content-Type: application/json
+
+{
+    "pet_id": 1
+}

@@ -15,12 +15,21 @@ static async getAllPets() {
     return rows[0];
     }
     // Inserir um novo cadastro de pet
-    static async registerPet({ name, age, species, size, status, description }) {
+    static async registerPet(pet) {
+        if (!pet.status){
+            const {name, age, species, size, description} = pet;
+            const [result] = await db.query(
+                'INSERT INTO pets (name, age, species, size, description) VALUES (?, ?, ?, ?, ?)',
+                [name, age, species, size, description]
+                );
+                return { id: result.insertId};
+                }
+    const {name, age, species, size, status, description} = pet;
     const [result] = await db.query(
     'INSERT INTO pets (name, age, species, size, status, description) VALUES (?, ?, ?, ?, ?, ?)',
     [name, age, species, size, status, description]
     );
-    return { id: result.insertId, name, age, species, size, status, description };
+    return { id: result.insertId};
     }
     // Atualizar os dados de um pet
     static async updatePet(id, { name, age, species, size, status, description }) {
@@ -35,13 +44,16 @@ static async getAllPets() {
     }
     //Retorna pets com status 'available'
     static async getAvailablePets(){
-        const [rows] = await db.query("SELECT * FROM pets WHERE status = 'available'", [_id])
+        const [rows] = await db.query("SELECT * FROM pets WHERE status = 'available'")
         return rows;
     }
     //Retorna pet com ID e status 'available'
     static async getAvailablePetByID(_id){
-        const [rows] = await db.query("SELECT * FROM pets WHERE status = 'available' AND id =?")
+        const [rows] = await db.query("SELECT * FROM pets WHERE status = 'available' AND id =?", [_id])
         return rows[0];
+    }
+    static async setStatus(id, status){
+        await db.query('UPDATE pets SET status=? WHERE id=?', [status, id]);
     }
    }
 

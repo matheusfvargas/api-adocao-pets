@@ -13,11 +13,13 @@ class ProtectedAdoptionsController{
         //Registra nova adoção
         static async createAdoption(req, res){
             try{
-                const adoption = await AdoptionsService.createAdoption(req.body);
+                const _id = req.user.id;
+                console.log(_id)
+                const adoption = await AdoptionsService.createAdoption(_id, req.body);
                 res.status(201).json(adoption);
             }catch (error) {
                 res.status(400).json({ error: error.message }); // Em caso de erro de validação, retorna status 400
-                 }
+            }
         }
 }
 

@@ -1,63 +1,71 @@
-Serviço API de Adoção de Pets
+# 🛍 Serviço API de Adoção de Pets
+Neste projeto, oferecemos uma **API RESTFul** que serve de base para um sistema de adoção de animais de estimação. A API tem o objetivo de realizar o cadastro e gerenciamento de usuários e pets, além de implementar o controle de autenticação de usuário em JWT. Uma **API RESTful** desenvolvida em **Node.js** com **Express** e **MySQL**. Projetada com boas práticas de organização de código, uso de middlewares, validações e integração com ESLint + Prettier.
+---
+## 🚀 Funcionalidades
+*Rotas Públicas*
+- 🔹 `POST /users` – Registro de novos usuários
+- 🔹 `POST /login` – Login do usuário para rotas protegidas
+- 🔹 `GET /pets/available` - Lista de todos os pets disponíveis para adoção
 
-Neste projeto, oferecemos uma API RESTFul que serve de base para um sistema de adoção de animais de estimação. A API tem o objetivo de realizar o cadastro e gerenciamento de usuários e pets, além de implementar o controle de autenticação de usuário em JWT.
-
-
-### 🔧 Instalação
-
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
-
-Diga como essa etapa será:
-
+*Rotas Protegidas*
+- 🔹 `GET /pets` – Lista todos os pets (restrito a admin)
+- 🔹 `GET /pets/:id` - Lista atributos de um pet específico (restrito a admin)
+- 🔹 `POST /pets` – Cadastra um novo pet (restrito a admin)
+- 🔹 `PUT /pets/:id` – Atualiza um cadastro de pet (restrito a admin)
+- 🔹 `DELETE /pets/:id` – Remove um cadastro de pet (restrito a admin)
+- 🔹 `GET /users` - Lista todos os usuários (restrito a admin)
+- 🔹 `DELETE /users/:id` - Remove um usuário específico (restrito a admin)
+- 🔹 `GET /users/:id` - Lista os atributos do perfil do usuário (admin ou o próprio usuário)
+- 🔹 `PUT /users/:id` - Atualiza o cadastro do usuário (admin ou o próprio usuário)
+- 🔹 `GET /adoptions` - Lista todas as adoções realizadas (restrito a admin)
+- 🔹 `POST /adoptions` - Realiza nova adoção (usuário não admin)
+- ✅ Validação de campos obrigatórios
+- 🧪 Testes via REST Client no VSCode
+---
+## 🧱 Tecnologias Utilizadas
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [MySQL](https://www.mysql.com/)
+- [Dotenv](https://github.com/motdotla/dotenv)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [REST
+Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+---
+## 📦 Instalação e uso
+```bash
+# Clone o repositório
+git clone https://github.com/matheusfvargas/api-adocao-pets
+cd api-adocao-pets
+# Instale as dependências
+npm install express mysql2 jsonwebtoken bcryptjs dotenv nodemon eslint prettier
+# Configure o ambiente
+cp .env.example .env
+# Edite o .env com as configurações do seu MySQL
+# Crie o banco de dados e tabelas
+mysql -u root -p < database/create_database.sql
+mysql -u root -p pets_db < database/create_tables.sql
+mysql -u root -p pets_db < database/seed_data.sql
+# Inicie a aplicação
+node server.js
 ```
-Dar exemplos
+
+### ⌨️ Testes de estilo de codificação
+```bash
+#Para rodar o script das ferramentas ESLINT e PRETTIER, execute o seguinte comando (as recomendações aparecerão no console):
+
+npm run lint
+
+#Para aplicar a formatação recomendada pelo PRETTIER, execute o seguinte comando:
+
+npm run format
+
+#Para aplicar a correção de erros pelo automaticamente pelo ESLINT, execute o seguinte comando:
+
+npm run lint -- --fix
 ```
-
-E repita:
-
-```
-Até finalizar
-```
-
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
-
-## ⚙️ Executando os testes
-
-Explicar como executar os testes automatizados para este sistema.
-
-
-### ⌨️ E testes de estilo de codificação
-
-Para rodar o script das ferramentas ESLINT e PRETTIER, execute o seguinte comando (as recomendações aparecerão no console):
-
-- npm run lint
-
-Para aplicar a formatação recomendada pelo PRETTIER, execute o seguinte comando:
-
-- npm run format
-
-Para aplicar a correção de erros pelo automaticamente pelo ESLINT, execute o seguinte comando:
-
-- npm run lint -- --fix
-
-## 🛠️ Ferramentas
-
-
-- express mysql2 jsonwebtoken bcryptjs dotenv nodemon eslint prettier
-
-
-## 📌 Versão
-
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto).
-
 ## ✒️ Autores
-
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 
 - **Matheus Vargas** - [matheusfvargas](https://github.com/matheusfvargas)
 
 Você também pode ver a lista de todos os colaboradores (https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
-
-## 📄 Licença
-
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.

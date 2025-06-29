@@ -33,6 +33,7 @@ router.post('/pets', authenticateToken, authorizeRole('admin'),ProtectedPetsCont
 router.put('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedPetsController.updatePet)
 //Define a rota DELETE /pets/:id (admin)
 router.delete('/pets/:id', authenticateToken, authorizeRole('admin'),ProtectedPetsController.removePet)
+
 //Define a rota GET /users (admin)
 router.get('/users', authenticateToken, authorizeRole('admin'), ProtectedUsersController.getAllUsers)
 //Define a rota GET /users/:id (admin ou o próprio usuário logado)
@@ -41,6 +42,7 @@ router.get('/users/:id', authenticateToken, authorizeIDAdmin,ProtectedUsersContr
 router.put('/users/:id', authenticateToken, authorizeIDAdmin,ProtectedUsersController.updateUser)
 //Define a rota DELETE /users (admin)
 router.delete('/users/:id', authenticateToken,  authorizeRole('admin'), ProtectedUsersController.removeUser)
+
 //Define a rota GET /adoptions (admin)
 router.get('/adoptions', authenticateToken, authorizeRole('admin'), ProtectedAdoptionsController.getAllAdoptions)
 //Define a rota POST /adoptions (adopter)

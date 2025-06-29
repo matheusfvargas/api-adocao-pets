@@ -8,7 +8,7 @@ class AdoptionsModel{
     return rows;
     }
     //Nova adoção de um pet
-    static async registerAdoption(user_id, {pet_id}) {
+    static async registerAdoption(user_id, pet_id) {
             const [result] = await db.query(
             'INSERT INTO adoptions (user_id, pet_id) VALUES ( ?, ?)',
             [user_id, pet_id]

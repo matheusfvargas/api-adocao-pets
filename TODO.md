@@ -1,4 +1,0 @@
-- erro no acesso à rota pelo próprio usuário
-- erro na adoção
-- atualizar o README
-- criar vídeo explicativo

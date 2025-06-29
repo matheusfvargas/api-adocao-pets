@@ -33,7 +33,7 @@ next();
 function authorizeIDAdmin(req, res, next) {
     // Verifica se o usuário possui a id ou então é admin
     const { id } = req.params
-    if (req.user.id !== id && req.user.role !=="admin"){
+    if (req.user.userID !== parseInt(id) && req.user.role !=="admin"){
     // Se não tiver permissão, retorna status 403 (Acesso negado)
     return res.status(403).json({ message: 'Acesso negado' });
     }

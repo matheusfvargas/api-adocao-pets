@@ -34,28 +34,29 @@ Content-Type: application/json
 
 ### Acesso ao painel (rota protegida, requer token de admin)
 GET {{baseURL}}/pets
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwMzUzOCwiZXhwIjoxNzUwODA3MTM4fQ.KvijVk7L_f4kXNQgEawtxu-duw0TnkuOv3YSikUAp70
-### Acesso à rota /pets/:id (rota protegida, requer token de admin)
-GET {{baseURL}}/pets/4
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwMzUzOCwiZXhwIjoxNzUwODA3MTM4fQ.KvijVk7L_f4kXNQgEawtxu-duw0TnkuOv3YSikUAp70
-###Acesso ao cadastro de novo pet (rota protegida, requer token de admin) sem status para testar DEFAULT 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyMzgyOCwiZXhwIjoxNzUxMjI3NDI4fQ.sITPE2Fnl8WHIGEIdsLzvHqY10H7acmE3gEjoBmW9kw
 
+###Acesso ao pet especifico (requer token de admin)
+GET {{baseURL}}/pets/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyMzgyOCwiZXhwIjoxNzUxMjI3NDI4fQ.sITPE2Fnl8WHIGEIdsLzvHqY10H7acmE3gEjoBmW9kw
+
+###Acesso ao cadastro de novo pet (rota protegida, requer token de admin) sem status para testar DEFAULT 
 POST {{baseURL}}/pets
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwMzUzOCwiZXhwIjoxNzUwODA3MTM4fQ.KvijVk7L_f4kXNQgEawtxu-duw0TnkuOv3YSikUAp70
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNjE0MiwiZXhwIjoxNzUxMjI5NzQyfQ.POhqEqniMxdD3LPyRzpVpStdiCDLl467sOOn11kRopA
 Content-Type: application/json
 
 {
-    "name": "Max",
+    "name": "Maxwell",
     "age": 2,
-    "species": "Cão poodle",
-    "size": "small",
-    "description": "cão dócil"
+    "species": "Cão border collie",
+    "size": "medium",
+    "description": "cão de companhia, vacinado"
 }
 
 ###Acesso à atualização do cadastro do pet (rota protegida, requer token de admin)
 
 PUT {{baseURL}}/pets/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwMzUzOCwiZXhwIjoxNzUwODA3MTM4fQ.KvijVk7L_f4kXNQgEawtxu-duw0TnkuOv3YSikUAp70
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNTczNCwiZXhwIjoxNzUxMjI5MzM0fQ.ALGTIJyZztbH0yS_fLeSrqyxvbalEmnCovWDKLcqf4k
 Content-Type: application/json
 
 {
@@ -63,27 +64,27 @@ Content-Type: application/json
     "age": 4,
     "species": "Cão SRD",
     "size": "large",
-    "status" : "available",
+    "status" : "adopted",
     "description": "cão de guarda vacinado"
 }
 
 ###Acesso à rota DELETE pets (rota protegida, requer token de admin)
-DELETE {{baseURL}}/pets/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwMzUzOCwiZXhwIjoxNzUwODA3MTM4fQ.KvijVk7L_f4kXNQgEawtxu-duw0TnkuOv3YSikUAp70
+DELETE {{baseURL}}/pets/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI1ODUxLCJleHAiOjE3NTEyMjk0NTF9.CYDmzQkmFTzBRlXWbJhPd3XMEKjFHzOyM8yg1ZG9qM8
 
 
 ### Acesso à todos os users (rota protegida, requer token de admin)
 GET {{baseURL}}/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwMzUzOCwiZXhwIjoxNzUwODA3MTM4fQ.KvijVk7L_f4kXNQgEawtxu-duw0TnkuOv3YSikUAp70
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNzE1NSwiZXhwIjoxNzUxMjMwNzU1fQ.SxZwXCu9DWj1xTx1u33KWjMlX8UdkjKJa2Pwfyf93gk
 
 ### Acesso a um user específico (rota protegida, requer token de admin ou o próprio usuário)
 GET {{baseURL}}/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUwODA0MDU5LCJleHAiOjE3NTA4MDc2NTl9.mm8J07qOoW9zyUG_ZVrvginbMIo1ooOVuP5IGGj4TnU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI1ODUxLCJleHAiOjE3NTEyMjk0NTF9.CYDmzQkmFTzBRlXWbJhPd3XMEKjFHzOyM8yg1ZG9qM8
 
 
 ### Acesso à rota PUT users/:id (rota protegida, requer token de admin ou o próprio usuário)
 PUT {{baseURL}}/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUwODA0MDU5LCJleHAiOjE3NTA4MDc2NTl9.mm8J07qOoW9zyUG_ZVrvginbMIo1ooOVuP5IGGj4TnU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI3NjI1LCJleHAiOjE3NTEyMzEyMjV9.ypyMzizj4Dleei_K6sI946PYB9zqqTy_OazUJrTA9C8
 Content-Type: application/json
 
 {
@@ -96,16 +97,15 @@ Content-Type: application/json
 
 ### Acesso à rota DELETE users (rota protegida, requer token de admin)
 DELETE {{baseURL}}/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjQsInJvbGUiOm51bGwsImlhdCI6MTc1MDc4OTI5MCwiZXhwIjoxNzUwNzkyODkwfQ.A4Y4nUYhUstDgx-MslGRuXEbpxtUVoZRMUvYRuLebSg
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI1ODUxLCJleHAiOjE3NTEyMjk0NTF9.CYDmzQkmFTzBRlXWbJhPd3XMEKjFHzOyM8yg1ZG9qM8
 
 ### Acesso à rota GET /adoptions (rota protegida, requer token de admin)
 GET {{baseURL}}/adoptions
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDgwNzUzMiwiZXhwIjoxNzUwODExMTMyfQ.SdpvtOYv7kY6yNZiuZ8WDgqGFeeycvtxwYOXYA5mmco
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNjU3MCwiZXhwIjoxNzUxMjMwMTcwfQ.6hqhw9EV9phoCri7UpMyczavjqjjZkhVQLuUxwua6fM
 
 ###Acesso à rota POST /adoptions (rota protegida, requer token de adopter)
 POST {{baseURL}}/adoptions
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUwODA0MDU5LCJleHAiOjE3NTA4MDc2NTl9.mm8J07qOoW9zyUG_ZVrvginbMIo1ooOVuP5IGGj4TnU
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNjU3MCwiZXhwIjoxNzUxMjMwMTcwfQ.6hqhw9EV9phoCri7UpMyczavjqjjZkhVQLuUxwua6fM
 Content-Type: application/json
 
 {

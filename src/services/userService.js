@@ -52,9 +52,10 @@ class UserService {
   static async getUserByID(id) {
     return await UserModel.getUserByID(id);
   }
-  //Serviço para atualizar cadastro de usuário (_id é o usuário cadastrante, id é o usuário cadastrado)
-  static async editUser(_id, id, user) {
-    const { password } = user;
+  //Serviço para atualizar cadastro de usuário 
+  static async editUser(id, user) {
+    
+    const {password} = user;
     // Criptografa a senha antes de salvar no banco
     const hashed = await bcrypt.hash(password, 10);
     // Substitui a senha original pela criptografada

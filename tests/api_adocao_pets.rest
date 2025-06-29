@@ -34,15 +34,15 @@ Content-Type: application/json
 
 ### Acesso ao painel (rota protegida, requer token de admin)
 GET {{baseURL}}/pets
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyMzgyOCwiZXhwIjoxNzUxMjI3NDI4fQ.sITPE2Fnl8WHIGEIdsLzvHqY10H7acmE3gEjoBmW9kw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIzNTAwNiwiZXhwIjoxNzUxMjM4NjA2fQ.oU4dkivm5jtikJxHYvIKCMM_32j4tu3A-TYYtqTEiOQ
 
 ###Acesso ao pet especifico (requer token de admin)
-GET {{baseURL}}/pets/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyMzgyOCwiZXhwIjoxNzUxMjI3NDI4fQ.sITPE2Fnl8WHIGEIdsLzvHqY10H7acmE3gEjoBmW9kw
+GET {{baseURL}}/pets/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIzNTAwNiwiZXhwIjoxNzUxMjM4NjA2fQ.oU4dkivm5jtikJxHYvIKCMM_32j4tu3A-TYYtqTEiOQ
 
 ###Acesso ao cadastro de novo pet (rota protegida, requer token de admin) sem status para testar DEFAULT 
 POST {{baseURL}}/pets
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNjE0MiwiZXhwIjoxNzUxMjI5NzQyfQ.POhqEqniMxdD3LPyRzpVpStdiCDLl467sOOn11kRopA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIzNTAwNiwiZXhwIjoxNzUxMjM4NjA2fQ.oU4dkivm5jtikJxHYvIKCMM_32j4tu3A-TYYtqTEiOQ
 Content-Type: application/json
 
 {
@@ -54,9 +54,8 @@ Content-Type: application/json
 }
 
 ###Acesso à atualização do cadastro do pet (rota protegida, requer token de admin)
-
 PUT {{baseURL}}/pets/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNTczNCwiZXhwIjoxNzUxMjI5MzM0fQ.ALGTIJyZztbH0yS_fLeSrqyxvbalEmnCovWDKLcqf4k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIzNTAwNiwiZXhwIjoxNzUxMjM4NjA2fQ.oU4dkivm5jtikJxHYvIKCMM_32j4tu3A-TYYtqTEiOQ
 Content-Type: application/json
 
 {
@@ -70,34 +69,33 @@ Content-Type: application/json
 
 ###Acesso à rota DELETE pets (rota protegida, requer token de admin)
 DELETE {{baseURL}}/pets/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI1ODUxLCJleHAiOjE3NTEyMjk0NTF9.CYDmzQkmFTzBRlXWbJhPd3XMEKjFHzOyM8yg1ZG9qM8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIzNTAwNiwiZXhwIjoxNzUxMjM4NjA2fQ.oU4dkivm5jtikJxHYvIKCMM_32j4tu3A-TYYtqTEiOQ
 
 
 ### Acesso à todos os users (rota protegida, requer token de admin)
 GET {{baseURL}}/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIyNzE1NSwiZXhwIjoxNzUxMjMwNzU1fQ.SxZwXCu9DWj1xTx1u33KWjMlX8UdkjKJa2Pwfyf93gk
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIzODcwNywiZXhwIjoxNzUxMjQyMzA3fQ.9e2oYKtzi8os_wv_UxAdlGLkuzdfBzuFXML1t-M370A
 ### Acesso a um user específico (rota protegida, requer token de admin ou o próprio usuário)
 GET {{baseURL}}/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI1ODUxLCJleHAiOjE3NTEyMjk0NTF9.CYDmzQkmFTzBRlXWbJhPd3XMEKjFHzOyM8yg1ZG9qM8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjM1NTY2LCJleHAiOjE3NTEyMzkxNjZ9.HcsiUWMYgKNpmwTBh6UMuLefGJltURYc5hQWdO4T-IA
 
 
 ### Acesso à rota PUT users/:id (rota protegida, requer token de admin ou o próprio usuário)
 PUT {{baseURL}}/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI3NjI1LCJleHAiOjE3NTEyMzEyMjV9.ypyMzizj4Dleei_K6sI946PYB9zqqTy_OazUJrTA9C8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjM1NTY2LCJleHAiOjE3NTEyMzkxNjZ9.HcsiUWMYgKNpmwTBh6UMuLefGJltURYc5hQWdO4T-IA
 Content-Type: application/json
 
 {
 "name": "João da Silva",
 "email": "novo@ifrs.edu.br",
-"password": "senha123",
-"phone": "54998185683", 
-"role": "admin"
+"password":"senha123",
+"phone": "54998185684", 
+"role": "adopter"
 }
 
 ### Acesso à rota DELETE users (rota protegida, requer token de admin)
 DELETE {{baseURL}}/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjMsInJvbGUiOiJhZG9wdGVyIiwiaWF0IjoxNzUxMjI1ODUxLCJleHAiOjE3NTEyMjk0NTF9.CYDmzQkmFTzBRlXWbJhPd3XMEKjFHzOyM8yg1ZG9qM8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTIzNTAwNiwiZXhwIjoxNzUxMjM4NjA2fQ.oU4dkivm5jtikJxHYvIKCMM_32j4tu3A-TYYtqTEiOQ
 
 ### Acesso à rota GET /adoptions (rota protegida, requer token de admin)
 GET {{baseURL}}/adoptions
@@ -109,5 +107,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsInJvb
 Content-Type: application/json
 
 {
-    "pet_id": 9
+    "pet_id": 2
 }

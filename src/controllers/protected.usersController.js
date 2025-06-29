@@ -24,8 +24,7 @@ class ProtectedUsersController {
   static async updateUser(req, res) {
     try {
       const { id } = req.params;
-      const { _id } = req.user.userID;
-      await UserService.editUser(_id, id, req.body);
+      await UserService.editUser(id, req.body);
       res.json({ message: 'Cadastro atualizado com sucesso.' });
     } catch (error) {
       res.status(400).json({ error: error.message }); // Retorna erro se não encontrar ou problema nos dados
